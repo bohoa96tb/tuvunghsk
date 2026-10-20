@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#162a34">
+  <title>Hanzi Lab · Bài 16 · HSK1</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#203038;background:#f6f4ee;--ink:#243039;--muted:#667783;--line:#e3e7e4;--navy:#152c36;--mint:#2a776b;--pale:#eff7f1;--paper:#fff;--accent:#c6714c}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse 700px 320px at 0% 0%,#e7efe5 0,transparent 80%),#f6f4ee}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #47a994;outline-offset:2px}a{color:inherit;text-decoration:none}
+    .hz-shell{max-width:1180px;margin:0 auto;padding:20px 20px 80px}.hz-top{display:flex;gap:14px;align-items:center;justify-content:space-between;margin-bottom:25px}.hz-brand{display:flex;align-items:center;gap:12px}.hz-logo{display:grid;place-items:center;width:44px;height:44px;background:var(--navy);border-radius:15px;color:#fff;font-size:25px;font-weight:700}.hz-kicker{font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:800;color:#567168}.hz-sub{color:var(--muted);font-size:13px;margin-top:3px}.hz-back{border:1px solid #cad5ce;background:#fff;border-radius:12px;padding:11px 14px;font-size:13px;font-weight:650}
+    .hz-hero{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;padding:24px 30px;background:linear-gradient(110deg,#1a3941,#264a43);color:white;border-radius:23px;margin-bottom:20px}.hz-hero h1{margin:8px 0;font-size:clamp(23px,4vw,34px);line-height:1.15}.hz-hero p{color:#d8e4dd;margin:4px 0;font-size:14px;line-height:1.6}.hz-pill{border-radius:60px;padding:8px 11px;border:1px solid #64817a;color:#dff0e6;font-size:12px;white-space:nowrap}
+    .hz-layout{display:grid;grid-template-columns:320px minmax(0,1fr);gap:18px;align-items:start}.hz-panel{background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:0 7px 30px #1b30300a}.hz-sidebar{padding:16px;position:sticky;top:10px}.hz-panel-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:12px}.hz-panel-head h2{font-size:16px;margin:0}.hz-count{font-size:12px;color:var(--muted);font-weight:700}.hz-filter{display:flex;gap:8px;margin-bottom:12px}.hz-filter select,.hz-filter input{background:#f7f8f5;border:1px solid #dce5de;border-radius:11px;padding:10px;min-width:0;color:var(--ink)}.hz-filter input{width:100%}.hz-list{max-height:660px;overflow:auto;display:grid;gap:8px}.hz-word{display:flex;gap:12px;align-items:center;width:100%;padding:11px 12px;border:1px solid #e6ece8;border-radius:14px;background:#fff;text-align:left}.hz-word:hover{border-color:#aec8ba}.hz-word[aria-current="true"]{border-color:#337c6e;background:#edf6ef}.hz-word-hanzi{font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:24px;white-space:nowrap;min-width:70px;color:#183c37}.hz-word-meta{min-width:0}.hz-word-meta b{font-weight:650;display:block;color:#2d4544;font-size:13px}.hz-word-meta span{font-size:12px;color:#728189;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:180px}
+    .hz-main{padding:24px;min-height:650px}.hz-status{padding:12px 14px;background:#f5f6ec;border-radius:12px;color:#657065;line-height:1.5;font-size:13px}.hz-status[data-error="true"]{background:#fff2ef;color:#a13e35}.hz-word-title{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.hz-bigword{font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:clamp(42px,7vw,72px);line-height:1.25;color:#173c37}.hz-pinyin{color:#b26043;font-size:18px;font-weight:750;margin-bottom:5px}.hz-meaning{font-size:14px;line-height:1.55;color:#5d706b;max-width:490px}.hz-btn{border:1px solid #d9e3df;color:#26463d;background:white;border-radius:12px;padding:10px 12px;font-weight:700;font-size:13px;display:inline-flex;align-items:center;justify-content:center;gap:5px}.hz-btn:hover{background:#f4faf7}.hz-btn-primary{background:#2a776b;border-color:#2a776b;color:white}.hz-btn-primary:hover{background:#21675c}.hz-btn-danger{color:#9e4e45;background:#fff7f2;border-color:#eed9d1}.hz-speaker{white-space:nowrap}
+    .hz-chars{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}.hz-chip{font-family:"Noto Sans SC",sans-serif;font-size:27px;border:1px solid #dfe6df;background:#fafcf9;border-radius:13px;padding:7px 16px;color:#254c45;min-width:61px;min-height:56px}.hz-chip.active{background:#2a776b;color:white;border-color:#2a776b}.hz-tabs{display:flex;gap:6px;border-bottom:1px solid #e5e9e4;padding-bottom:10px;margin-bottom:19px;flex-wrap:wrap}.hz-tab{padding:10px 12px;border-radius:10px;border:0;background:transparent;font-weight:750;font-size:13px;color:#73807b}.hz-tab[aria-selected="true"]{background:#eaf4ef;color:#1e6b5e}
+    .hz-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:15px}.hz-box{background:#f7f8f5;border:1px solid #e5ebe4;border-radius:16px;padding:16px;min-width:0}.hz-box h3{font-size:14px;margin:0 0 12px;color:#28453d}.hz-herochar{font-family:"Noto Sans SC",sans-serif;text-align:center;font-size:75px;line-height:1.4;color:#1a5146}.hz-desc{font-size:14px;color:#526862;line-height:1.75;margin:8px 0}.hz-note{padding:12px 14px;background:#ebf5ed;border-radius:12px;line-height:1.55;color:#315e50;font-size:13px}.hz-warning{padding:12px;background:#fff5e9;border-radius:12px;color:#8e5f35;font-size:13px;line-height:1.6}.hz-parts{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:10px}.hz-part{border:1px solid #d7e4de;background:#fff;padding:10px 12px;border-radius:13px;min-width:75px}.hz-part b{display:block;font-size:25px;color:#24594c;font-family:"Noto Sans SC",sans-serif}.hz-part small{font-size:12px;color:#75827a}.hz-section{margin-top:18px;border-top:1px solid #ecf0ec;padding-top:17px}.hz-section h3{font-size:14px;margin:0 0 12px}.hz-example{padding:12px 13px;border:1px solid #ebeeea;border-radius:13px;margin-bottom:10px;display:flex;justify-content:space-between;gap:12px;align-items:center}.hz-example b{font-family:"Noto Sans SC",sans-serif;display:block;font-size:20px;color:#203f37;line-height:1.6}.hz-example span{font-size:13px;color:#60746a;line-height:1.5}.hz-small{font-size:12px;color:#788984;line-height:1.6}
+    .hz-writing{text-align:center}.hz-writer{height:236px;width:236px;margin:0 auto 15px;display:grid;place-items:center;border:2px dashed #a8c5b8;border-radius:14px;background:linear-gradient(90deg,transparent 49.6%,#e7eeea 50%,transparent 50.4%),linear-gradient(0deg,transparent 49.6%,#e7eeea 50%,transparent 50.4%),#fcfefa;touch-action:none}.hz-write-actions{display:flex;flex-wrap:wrap;gap:9px;justify-content:center}.hz-write-feedback{margin-top:12px;color:#395c50;font-weight:650;font-size:13px;min-height:26px}.hz-review-center{text-align:center;max-width:390px;margin:20px auto}.hz-review-card{padding:32px 16px;border-radius:17px;background:#f1f6f2;border:1px solid #d5e5db;min-height:210px;display:grid;place-items:center}.hz-review-char{font-size:72px;font-family:"Noto Sans SC",sans-serif;line-height:1.3}.hz-review-foot{display:flex;gap:9px;justify-content:center;margin-top:13px;flex-wrap:wrap}.hz-review-answer{font-size:18px;font-weight:800;margin:8px 0 2px}.hz-hidden{display:none!important}.hz-credit{text-align:center;color:#7a8581;font-size:12px;line-height:1.6;margin:20px 0 5px}.hz-bottom-note{font-size:12px;color:#617269;margin-top:18px;padding:11px;background:#f1f7f0;border-radius:10px}
+    @media(max-width:820px){.hz-layout{grid-template-columns:1fr}.hz-sidebar{position:static}.hz-list{display:flex;overflow-x:auto;max-height:none;gap:8px;padding-bottom:8px}.hz-word{width:150px;min-width:150px;flex-direction:column;align-items:flex-start;gap:2px;padding:9px 11px}.hz-word-hanzi{min-width:0}.hz-word-meta span{max-width:128px}.hz-main{min-height:500px}.hz-filter{margin-bottom:12px}}
+    @media(max-width:530px){.hz-shell{padding:12px 11px 45px}.hz-hero{padding:18px 16px;border-radius:17px}.hz-hero .hz-pill{display:none}.hz-main{padding:16px}.hz-grid{grid-template-columns:1fr}.hz-brand .hz-sub{max-width:160px}.hz-back{padding:9px}.hz-word-title{align-items:center}.hz-bigword{font-size:48px}.hz-pinyin{font-size:15px}.hz-tabs{gap:0}.hz-tab{padding:10px 11px}.hz-example b{font-size:18px}}
+  </style>
+  <!-- Chỉ dùng thư viện MIT bên ngoài; dữ liệu nét viết được tải theo từng chữ khi cần. -->
+  <script defer src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
+</head>
+<body>
+  <div class="hz-shell">
+    <header class="hz-top">
+      <div class="hz-brand"><div class="hz-logo" aria-hidden="true">汉</div><div><div class="hz-kicker">Hanzi Lab · Thử nghiệm</div><div class="hz-sub">Phân tích và ghi nhớ chữ Hán</div></div></div>
+      <a class="hz-back" href="index.html">← Về app chính</a>
+    </header>
+    <section class="hz-hero">
+      <div><div class="hz-kicker" style="color:#c7dcd2">Module độc lập · HSK1</div><h1>Giải mã chữ Hán · Bài 16</h1><p>Học chữ từ 24 từ gốc · phân tích thành phần · tập viết · ôn nhớ</p></div>
+      <div class="hz-pill" id="hz-hero-count">Đang tải bài 16…</div>
+    </section>
+    <div class="hz-layout">
+      <aside class="hz-panel hz-sidebar" aria-label="Danh sách từ vựng">
+        <div class="hz-panel-head"><h2>Kho từ bài 16</h2><span class="hz-count" id="hz-word-count">0/24 từ</span></div>
+        <div class="hz-filter"><select id="hz-group" aria-label="Lọc nhóm"><option value="all">Tất cả nhóm</option></select><input id="hz-search" type="search" placeholder="Tìm chữ / nghĩa..." aria-label="Tìm từ"></div>
+        <div class="hz-list" id="hz-word-list"><div class="hz-status">Đang đọc data/hsk1/bai-16.js…</div></div>
+      </aside>
+      <main class="hz-panel hz-main" aria-live="polite">
+        <div id="hz-error" class="hz-status hz-hidden" role="status"></div>
+        <section id="hz-content" class="hz-hidden">
+          <div class="hz-word-title">
+            <div><div class="hz-bigword" id="hz-word-hanzi"></div><div class="hz-pinyin" id="hz-word-pinyin"></div><div class="hz-meaning" id="hz-word-meaning"></div></div>
+            <button class="hz-btn hz-speaker" id="hz-speak-word" type="button" title="Nghe phát âm cả từ">🔊 Nghe</button>
+          </div>
+          <div class="hz-chars" id="hz-char-chips" aria-label="Chọn chữ trong từ"></div>
+          <div class="hz-tabs" role="tablist" aria-label="Chế độ học"><button class="hz-tab" data-tab="decode" role="tab" aria-selected="true">🧩 Giải mã</button><button class="hz-tab" data-tab="write" role="tab" aria-selected="false">✍️ Tập viết</button><button class="hz-tab" data-tab="review" role="tab" aria-selected="false">🧠 Ôn nhớ</button></div>
+          <div id="hz-view-decode" role="tabpanel">
+            <div class="hz-grid">
+              <div class="hz-box"><h3>Chữ đang tìm hiểu</h3><div class="hz-herochar" id="hz-current-char"></div><div class="hz-small" id="hz-char-position"></div><div class="hz-desc" id="hz-char-about"></div></div>
+              <div class="hz-box"><h3>Thành phần & cách nhớ</h3><div class="hz-parts" id="hz-parts"></div><p class="hz-note" id="hz-mnemonic"></p><div class="hz-warning hz-hidden" id="hz-contrast"></div></div>
+            </div>
+            <div class="hz-section"><h3>Ví dụ thực tế từ bài 16</h3><div id="hz-examples"></div></div>
+            <div class="hz-section"><h3>Lưu ý sử dụng từ này</h3><p class="hz-desc" id="hz-use"></p></div>
+          </div>
+          <div id="hz-view-write" class="hz-hidden" role="tabpanel">
+            <div class="hz-writing"><div class="hz-writer" id="hz-writer" aria-label="Vùng viết chữ Hán bằng ngón tay"></div><div class="hz-write-actions"><button class="hz-btn" id="hz-animate" type="button">▶ Xem thứ tự nét</button><button class="hz-btn hz-btn-primary" id="hz-quiz" type="button">✍️ Tự viết</button><button class="hz-btn" id="hz-reset" type="button">↻ Đặt lại</button><button class="hz-btn" id="hz-speak-char" type="button">🔊 Nghe chữ</button></div><p class="hz-write-feedback" id="hz-write-feedback" role="status"></p><p class="hz-small">Kéo ngón tay trên ô để viết theo đúng thứ tự nét. Cần Internet để tải thư viện và dữ liệu nét viết lần đầu.</p></div>
+          </div>
+          <div id="hz-view-review" class="hz-hidden" role="tabpanel">
+            <div class="hz-review-center"><div class="hz-small" id="hz-review-counter"></div><div class="hz-review-card"><div><div class="hz-review-char" id="hz-review-hanzi"></div><div id="hz-review-reveal" class="hz-hidden"><div class="hz-review-answer" id="hz-review-meaning"></div><div class="hz-pinyin" id="hz-review-pinyin"></div></div></div></div><div class="hz-review-foot" id="hz-review-controls"><button type="button" class="hz-btn hz-btn-primary" id="hz-show-answer">Xem đáp án</button><button type="button" class="hz-btn hz-btn-danger hz-hidden" id="hz-forgot">Chưa nhớ</button><button type="button" class="hz-btn hz-btn-primary hz-hidden" id="hz-remembered">Đã nhớ</button></div><p class="hz-small">Tự đánh giá sau khi nghĩ nghĩa trong đầu. Ôn theo các mốc 1, 3, 7, 14, 30 ngày. Tiến độ lưu trên trình duyệt này.</p></div>
+          </div>
+          <div class="hz-bottom-note">📌 Các câu chuyện ghi nhớ chỉ là <b>mẹo học</b>, không phải giải thích từ nguyên. Chữ chưa biên soạn kỹ sẽ được ghi rõ, không đoán nguồn gốc.</div>
+        </section>
+      </main>
+    </div>
+    <div class="hz-credit">Bản thử nghiệm riêng cho bài 16 · Không sửa file bài học gốc · Hanzi Writer (MIT) và dữ liệu nét viết (Arphic Public License)</div>
+  </div>
+<script>
+/* HANZI LAB v1 · Cố ý độc lập với index.html/manifest.js của ứng dụng chính. */
+(function(){
+'use strict';
+const LESSON_FILE='data/hsk1/bai-16.js';
+const STORAGE_KEY='hz-lab-hsk1-bai-16-v1';
+const $=id=>document.getElementById(id);
+const E=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const state={lesson:null,words:[],group:'all',search:'',word:null,char:null,tab:'decode',writer:null,reviewWord:null,reviewSeen:new Set(),progress:{}};
+/* Chỉ biên soạn ghi chú an toàn, không tự suy ra từ nguyên từ bộ phận hình dạng. */
+const NOTES={
+'右':{about:'右 (phải). Chú ý phần dưới có chữ 口.',parts:[['口','miệng']],memory:'Mẹo hình ảnh: tay phải đưa thức ăn vào miệng 口.',contrast:'So sánh 左 (trái, bên dưới có 工) và 右 (phải, bên dưới có 口).'},
+'车':{about:'车 là chữ giản thể chỉ xe, phương tiện. Hình chữ đã biến đổi nhiều so với hình cổ.',parts:[],memory:'Liên tưởng các nét với khung một chiếc xe. Đây là mẹo nhận diện, không phải phân tích từng bộ.'},
+'北':{about:'北 mang nghĩa phương Bắc. Hình cổ thường được giải thích như hai người quay lưng.',parts:[],memory:'Tưởng tượng hai hình người đứng quay lưng để gợi nhớ mặt chữ.'},
+'他':{about:'他 là đại từ anh ấy / ông ấy; trong văn nói thông thường phát âm tā.',parts:[['亻','người'],['也','phần bên phải']],memory:'Ghi nhớ 亻 là bộ người. Cần phân biệt 他 với 她.',contrast:'他: anh ấy / ông ấy; 她: cô ấy / bà ấy. Cả hai cùng đọc tā.'},
+'们':{about:'们 biểu thị số nhiều trong các đại từ như 我们, 他们, 你们.',parts:[['亻','người'],['门','cửa']],memory:'Nhớ 们 có bộ người 亻 đứng trước 门.'},
+'一':{about:'一 là số một và chỉ có một nét ngang.',parts:[],memory:'Một vạch ngang = một. Khi ghép từ, cách đọc có thể đổi thanh tùy âm sau.'},
+'边':{about:'边 liên quan đến bên, mép, phía. Là chữ giản thể, không nên suy nghĩa lịch sử từ từng nét hiện đại.',parts:[['辶','bộ bước đi']],memory:'Nhận diện nét bộ bước đi 辶 chạy dưới/bên ngoài chữ.'},
+'的':{about:'的 là trợ từ xuất hiện rất thường xuyên, ví dụ 我的 và 真的; có nhiều cách đọc tùy nghĩa.',parts:[['白','thành phần bên trái'],['勺','thành phần bên phải']],memory:'Ghép hình ảnh 白 và 勺 để nhận mặt chữ; không suy nghĩa “của” từ hai thành phần này.'},
+'下':{about:'下 chỉ hướng dưới hoặc hành động đi xuống, kết thúc tùy từ ghép.',parts:[],memory:'Nét ngắn nằm phía dưới nét ngang dài → liên tưởng “dưới”.',contrast:'So với 上 (trên), nét nhỏ của 下 nằm phía dưới đường ngang.'},
+'课':{about:'课 nghĩa là bài học, tiết học, môn học.',parts:[['讠','bộ lời nói'],['果','thành phần bên phải']],memory:'Nhớ 讠 xuất hiện trong nhiều chữ liên quan lời nói/ngôn ngữ. Không xem 果 là nghĩa “trái cây” trong từ 课.'},
+'名':{about:'名 nghĩa là tên, danh tiếng.',parts:[['夕','chiều tối'],['口','miệng']],memory:'Mẹo: trời tối 夕, phải lên tiếng 口 gọi tên người khác.'},
+'大':{about:'大 là lớn, to; hình chữ dễ gợi một người dang rộng tay.',parts:[],memory:'Tưởng tượng người dang rộng tay để chỉ thứ gì đó rất lớn.'},
+'学':{about:'学 là học, chữ giản thể. Phần dưới có 子.',parts:[['子','đứa trẻ']],memory:'Tưởng tượng trẻ nhỏ 子 đang được học dưới mái trường. Đây là câu chuyện ghi nhớ, không phải phép phân tích từ nguyên.'},
+'这':{about:'这 là này/đây, dùng chỉ vật/người ở gần trong ngữ cảnh.',parts:[['辶','bộ bước đi'],['文','dạng nét nhìn thấy']],memory:'Ghi nhớ nét 辶 và phần 文 trong hình chữ giản thể.'},
+'里':{about:'里 là bên trong / đơn vị dặm, tùy ngữ cảnh.',parts:[['田','ruộng (phần trên)'],['土','đất (phần dưới)']],memory:'Nhận diện phần 田 ở trên, các nét dọc và ngang kéo xuống phía dưới.'},
+'时':{about:'时 liên quan thời gian, giờ hoặc thời điểm.',parts:[['日','mặt trời / ngày'],['寸','tấc']],memory:'Bộ 日 nhắc đến ngày; tưởng tượng chia ngày thành các khoảng thời gian nhỏ.'},
+'天':{about:'天 là trời hoặc ngày.',parts:[['一','nét ngang ở trên'],['大','hình giống chữ đại']],memory:'Trời ở phía trên đỉnh đầu người dang tay (大).'},
+'国':{about:'国 là quốc gia, đất nước. Dạng giản thể hiện nay có khung 囗 bọc 玉.',parts:[['囗','khung bao quanh'],['玉','ngọc']],memory:'Mẹo nhìn mặt chữ: một khung đất nước 囗 bao quanh 玉. Không coi đây là giải thích lịch sử của chữ 國.'},
+'家':{about:'家 nghĩa là nhà, gia đình. Có 宀 phía trên và 豕 ở dưới.',parts:[['宀','mái nhà'],['豕','lợn (dạng cổ)']],memory:'Mẹo cổ điển: trong mái nhà 宀 có con lợn 豕 → liên tưởng nhà, gia đình.'},
+'店':{about:'店 chỉ cửa hàng, hiệu buôn.',parts:[['广','mái / nhà'],['占','thành phần bên trong']],memory:'Nhìn thấy một khoảng nhà có mái 广, bên trong là 占.'},
+'好':{about:'好 nghĩa là tốt, hay; kết hợp 女 và 子.',parts:[['女','phụ nữ'],['子','trẻ nhỏ']],memory:'Ghi nhớ nét chữ từ 女 bên trái và 子 bên phải. Không suy ra quan niệm xã hội hiện đại từ mẹo chữ này.'},
+'看':{about:'看 là nhìn, xem; cấu trúc có phần giống bàn tay phía trên và 目 phía dưới.',parts:[['目','mắt']],memory:'Đưa tay lên trán, dùng mắt 目 để nhìn xa.',contrast:'看 (xem) khác 着 (trợ từ / zhe), hình dạng có điểm dễ nhầm.'},
+'爸':{about:'爸 là bố/ba. Đây là ví dụ dễ nhận ra phần gợi nghĩa và phần gợi âm.',parts:[['父','cha / bố'],['巴','bā — gợi âm']],memory:'父 chỉ ý nghĩa cha; 巴 (bā) gợi âm gần với 爸 (bà).'},
+'打':{about:'打 là đánh, đập; cũng dùng trong nhiều từ như 打电话, 打球, 打开.',parts:[['扌','tay'],['丁','thành phần bên phải']],memory:'Có bộ tay 扌, giúp bạn liên tưởng đến hành động làm bằng tay.'},
+'球':{about:'球 là bóng, quả bóng.',parts:[['王/玉','bộ ngọc bên trái'],['求','qiú — gợi âm']],memory:'求 (qiú) giúp nhớ âm 球 (qiú); bên trái là thành phần liên quan ngọc.'},
+'口':{about:'口 là miệng hoặc lối mở trong một số từ ghép.',parts:[],memory:'Hình vuông nhỏ giống miệng đang mở.'},
+'读':{about:'读 nghĩa là đọc, dạng giản thể.',parts:[['讠','bộ lời nói'],['卖','phần bên phải']],memory:'Nhớ có bộ lời nói 讠. Không diễn giải “bán” 卖 thành nghĩa của chữ 读.'},
+'姐':{about:'姐 là chị gái.',parts:[['女','phụ nữ'],['且','thành phần bên phải']],memory:'Có bộ nữ 女 để nhớ đây là một cách gọi người thân nữ.',contrast:'姐 là chị gái; 妹 là em gái.'},
+'站':{about:'站 nghĩa là đứng, trạm, ga tùy từ ghép.',parts:[['立','đứng'],['占','thành phần bên phải']],memory:'Nhớ 立 là đứng; gặp 车站, hiểu là điểm dừng/ga xe.'},
+'书':{about:'书 là chữ giản thể chỉ sách, viết (tùy từ ghép). Dạng chữ hiện đại khó tách để suy nghĩa.',parts:[],memory:'Hãy nhớ dáng chữ bằng luyện viết, kết hợp từ 书店 và 读书.'},
+'开':{about:'开 là mở, bắt đầu, lái (xe) trong từ ghép. Dạng giản thể của 開.',parts:[],memory:'Gắn với 开车 (lái xe) và 打开 (mở ra); cùng chữ nhưng nghĩa phụ thuộc từ.'}
+};
+let rawLesson=null;
+window.HSK_REGISTER=function(lesson){if(lesson && lesson.id==='hsk1-bai-16')rawLesson=lesson;};
+function loadLesson(){
+  const script=document.createElement('script');
+  script.src=new URL(LESSON_FILE,document.baseURI).href;
+  script.onload=function(){
+    if(!rawLesson || !Array.isArray(rawLesson.groups)){fail('Đã tải file nhưng không thấy HSK_REGISTER của bài 16. Kiểm tra file bai-16.js hiện tại.');return;}
+    state.lesson=rawLesson;
+    state.words=rawLesson.groups.flatMap(g=>Array.isArray(g.words)?g.words.map(w=>({...w,_group:g.id})):[]).filter(w=>typeof w.hanzi==='string');
+    try{state.progress=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}')||{};}catch(_){state.progress={};}
+    setup();
+  };
+  script.onerror=()=>fail('Không tải được '+LESSON_FILE+'. Hãy kiểm tra đường dẫn data/hsk1/bai-16.js trên GitHub; hai file phải nằm cùng kho mã nguồn.');
+  document.head.appendChild(script);
+}
+function fail(message){$('hz-error').textContent=message;$('hz-error').dataset.error='true';$('hz-error').classList.remove('hz-hidden');$('hz-word-list').textContent='Chưa tải được danh sách từ.';}
+function setup(){
+  $('hz-error').classList.add('hz-hidden');$('hz-content').classList.remove('hz-hidden');
+  $('hz-hero-count').textContent=state.words.length+' từ · '+state.lesson.groups.length+' nhóm';
+  $('hz-group').innerHTML='<option value="all">Tất cả nhóm</option>'+state.lesson.groups.map((g,i)=>'<option value="'+E(g.id)+'">Nhóm '+(i+1)+'</option>').join('');
+  $('hz-group').addEventListener('change',e=>{state.group=e.target.value;renderList();});
+  $('hz-search').addEventListener('input',e=>{state.search=e.target.value.toLowerCase().trim();renderList();});
+  $('hz-word-list').addEventListener('click',e=>{const b=e.target.closest('button[data-word-id]');if(b){const word=state.words.find(x=>x.id===b.dataset.wordId);if(word)selectWord(word);}});
+  $('hz-char-chips').addEventListener('click',e=>{const b=e.target.closest('button[data-char]');if(b)selectChar(b.dataset.char);});
+  document.querySelectorAll('.hz-tab').forEach(b=>b.addEventListener('click',()=>setTab(b.dataset.tab)));
+  $('hz-speak-word').addEventListener('click',()=>speak(state.word?.hanzi));
+  $('hz-speak-char').addEventListener('click',()=>speak(state.char));
+  $('hz-animate').addEventListener('click',()=>runWriter('animate'));
+  $('hz-quiz').addEventListener('click',()=>runWriter('quiz'));
+  $('hz-reset').addEventListener('click',()=>drawWriter());
+  $('hz-show-answer').addEventListener('click',reveal);
+  $('hz-forgot').addEventListener('click',()=>answer(false));
+  $('hz-remembered').addEventListener('click',()=>answer(true));
+  renderList();selectWord(state.words[0]);
+}
+function renderList(){
+  const filtered=state.words.filter(w=>(state.group==='all'||w._group===state.group)&&(!state.search||[w.hanzi,w.pinyin,w.coreMeaning].join(' ').toLowerCase().includes(state.search)));
+  $('hz-word-count').textContent=filtered.length+'/'+state.words.length+' từ';
+  $('hz-word-list').innerHTML=filtered.map(w=>'<button type="button" class="hz-word" data-word-id="'+E(w.id)+'" aria-current="'+(state.word?.id===w.id)+'"><span class="hz-word-hanzi">'+E(w.hanzi)+'</span><span class="hz-word-meta"><b>'+E(w.pinyin)+'</b><span>'+E(w.coreMeaning)+'</span></span></button>').join('')||'<div class="hz-status">Không tìm thấy từ phù hợp.</div>';
+}
+function selectWord(word){
+  if(!word)return;state.word=word;state.char=Array.from(word.hanzi)[0];
+  $('hz-word-hanzi').textContent=word.hanzi;
+  $('hz-word-pinyin').textContent=word.pinyin||'';
+  $('hz-word-meaning').textContent=word.coreMeaning||'';
+  renderChips();renderList();setTab('decode');
+}
+function selectChar(char){state.char=char;renderChips();if(state.tab==='write')drawWriter();if(state.tab==='decode')renderDecode();}
+function renderChips(){
+  $('hz-char-chips').innerHTML=Array.from(state.word.hanzi).map(c=>'<button type="button" class="hz-chip '+(state.char===c?'active':'')+'" data-char="'+E(c)+'" aria-label="Chọn chữ '+E(c)+'">'+E(c)+'</button>').join('');
+}
+function setTab(tab){state.tab=tab;document.querySelectorAll('.hz-tab').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===tab?'true':'false'));for(const key of ['decode','write','review'])$('hz-view-'+key).classList.toggle('hz-hidden',key!==tab);if(tab==='decode')renderDecode();if(tab==='write')drawWriter();if(tab==='review')startReview();}
+function renderDecode(){
+  const n=NOTES[state.char];$('hz-current-char').textContent=state.char;
+  $('hz-char-position').textContent=state.word.hanzi.length>1?'Chạm chữ khác ở trên để phân tích riêng từng chữ trong '+state.word.hanzi:'Từ đơn / chữ đơn';
+  $('hz-char-about').textContent=n?.about||'Chưa biên soạn chú giải cấu tạo đã kiểm chứng cho chữ này. Bạn vẫn có thể luyện viết và nghe chữ ở tab Tập viết.';
+  $('hz-parts').innerHTML=(n?.parts?.length?n.parts.map(x=>'<span class="hz-part"><b>'+E(x[0])+'</b><small>'+E(x[1])+'</small></span>').join(''):'<span class="hz-small">Chưa có phân tích bộ phận phù hợp.</span>');
+  $('hz-mnemonic').textContent=n?.memory||'Mẹo tạm thời: học chữ trong từ '+state.word.hanzi+' và tự luyện nét viết; tránh suy đoán nguồn gốc theo hình dạng.';
+  $('hz-contrast').textContent=n?.contrast||'';$('hz-contrast').classList.toggle('hz-hidden',!n?.contrast);
+  const examples=Array.isArray(state.word.examples)?state.word.examples.slice(0,3):[];
+  $('hz-examples').innerHTML=examples.map(ex=>'<div class="hz-example"><div><b>'+E(ex.zh)+'</b><span>'+E(ex.vi)+'</span></div><button type="button" class="hz-btn" data-say="'+E(ex.zh)+'" aria-label="Nghe câu ví dụ">🔊</button></div>').join('')||'<p class="hz-small">Không có câu ví dụ trong file gốc.</p>';
+  $('hz-examples').querySelectorAll('[data-say]').forEach(b=>b.addEventListener('click',()=>speak(b.dataset.say)));
+  const use=state.word.meaning?.keyPoint||state.word.meaning?.situation||state.word.meaning?.detail||'';
+  $('hz-use').textContent=use;
+}
+function speak(text){
+  if(!text)return;
+  if(!('speechSynthesis' in window)){alert('Thiết bị hoặc trình duyệt này không hỗ trợ giọng đọc.');return;}
+  window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='zh-CN';u.rate=.82;u.pitch=1;
+  const voices=window.speechSynthesis.getVoices();const zh=voices.find(v=>/^zh[-_](CN|Hans)/i.test(v.lang))||voices.find(v=>/^zh/i.test(v.lang));if(zh)u.voice=zh;
+  window.speechSynthesis.speak(u);
+}
+function drawWriter(){
+  const el=$('hz-writer'),feedback=$('hz-write-feedback');el.innerHTML='';feedback.textContent='';
+  state.writer=null;
+  if(!window.HanziWriter){el.innerHTML='<div style="padding:18px;color:#89553b;font-size:13px">Chưa tải được Hanzi Writer.<br>Hãy kiểm tra kết nối Internet và tải lại trang.</div>';return;}
+  try{
+    state.writer=window.HanziWriter.create(el,state.char,{width:224,height:224,padding:18,strokeColor:'#245f53',radicalColor:'#b87553',outlineColor:'#dce7e1',drawingColor:'#247d69',strokeAnimationSpeed:1,delayBetweenStrokes:230,showOutline:true,showCharacter:true,showHintAfterMisses:2,
+      charDataLoader:function(character,onLoad,onError){fetch('https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/'+encodeURIComponent(character)+'.json')
+        .then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(onLoad).catch(err=>{feedback.textContent='Không tải được dữ liệu nét cho chữ '+character+' (cần Internet).';if(typeof onError==='function')onError(err);});}
+    });
+    feedback.textContent='Chọn “Xem thứ tự nét” hoặc “Tự viết”.';
+  }catch(err){feedback.textContent='Lỗi khởi tạo tập viết: '+err.message;}
+}
+function runWriter(mode){
+  if(!state.writer){$('hz-write-feedback').textContent='Thư viện luyện viết chưa tải được. Vui lòng thử tải lại.';return;}
+  try{
+    if(mode==='animate'){$('hz-write-feedback').textContent='Đang hướng dẫn các nét…';state.writer.animateCharacter({onComplete:()=>{$('hz-write-feedback').textContent='Đã xem hết các nét. Hãy chọn “Tự viết”.';}});}
+    else{$('hz-write-feedback').textContent='Hãy viết từng nét trong khung bằng ngón tay.';state.writer.quiz({onComplete:data=>{$('hz-write-feedback').textContent='✅ Hoàn thành chữ '+state.char+'. Số lỗi nét: '+data.totalMistakes;},onMistake:data=>{$('hz-write-feedback').textContent='Chưa đúng ở nét '+(data.strokeNum+1)+'. Thử lại nhé.';}});}
+  }catch(err){$('hz-write-feedback').textContent='Không chạy được luyện viết: '+err.message;}
+}
+function today(){const d=new Date();return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');}
+function later(days){const d=new Date();d.setHours(12,0,0,0);d.setDate(d.getDate()+days);return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');}
+function dueWords(){const t=today();return state.words.filter(w=>!state.progress[w.id]||state.progress[w.id].due<=t);}
+function startReview(){state.reviewSeen=new Set();nextReview();}
+function nextReview(){
+  const due=dueWords();const unseen=due.filter(w=>!state.reviewSeen.has(w.id));
+  if(!unseen.length){state.reviewWord=null;$('hz-review-counter').textContent='Đã xử lý '+state.reviewSeen.size+' từ trong lượt này';$('hz-review-hanzi').textContent='🎉';$('hz-review-meaning').textContent='Hoàn thành lượt ôn!';$('hz-review-pinyin').textContent='Quay lại ngày mai để ôn các từ đến hạn.';$('hz-review-reveal').classList.remove('hz-hidden');$('hz-show-answer').classList.add('hz-hidden');$('hz-forgot').classList.add('hz-hidden');$('hz-remembered').classList.add('hz-hidden');return;}
+  state.reviewWord=unseen[0];$('hz-review-counter').textContent='Còn '+unseen.length+' từ cần ôn · tổng '+due.length+' đến hạn';$('hz-review-hanzi').textContent=state.reviewWord.hanzi;
+  $('hz-review-meaning').textContent=state.reviewWord.coreMeaning;$('hz-review-pinyin').textContent=state.reviewWord.pinyin||'';
+  $('hz-review-reveal').classList.add('hz-hidden');$('hz-show-answer').classList.remove('hz-hidden');$('hz-forgot').classList.add('hz-hidden');$('hz-remembered').classList.add('hz-hidden');
+}
+function reveal(){if(!state.reviewWord)return;$('hz-review-reveal').classList.remove('hz-hidden');$('hz-show-answer').classList.add('hz-hidden');$('hz-forgot').classList.remove('hz-hidden');$('hz-remembered').classList.remove('hz-hidden');}
+function answer(remembered){
+  const w=state.reviewWord;if(!w)return;const old=state.progress[w.id]||{level:0};const level=remembered?Math.min(5,(old.level||0)+1):0;
+  const gaps=[0,1,3,7,14,30];state.progress[w.id]={level,due:later(gaps[level]),last:today()};
+  try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state.progress));}catch(err){$('hz-review-counter').textContent='Không lưu được tiến độ: kiểm tra chế độ riêng tư/bộ nhớ trình duyệt.';}
+  state.reviewSeen.add(w.id);nextReview();
+}
+document.addEventListener('DOMContentLoaded',loadLesson);
+})();
+</script>
+</body>
+</html>
